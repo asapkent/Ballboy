@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import UIKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -94,7 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     finalUsersScoreLabel?.removeFromParent()
                     userScoreLabel?.removeFromParent()
                     scene?.isPaused = false
-                    scoreLabel?.text = "Fumbles: \(score)"
+                    scoreLabel?.text = "Score: \(score)"
                     timers()
                 }
             }
@@ -161,12 +162,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // this makes footballs disapear if contacted.
         if contact.bodyA.categoryBitMask == footballCategory {
             score += 1
-            scoreLabel?.text = "score: \(score)"
+            scoreLabel?.text = "Score: \(score)"
             contact.bodyA.node?.removeFromParent()
         }
         if contact.bodyB.categoryBitMask == footballCategory {
             score += 1
-            scoreLabel?.text = "score: \(score)"
+            scoreLabel?.text = "Score: \(score)"
             contact.bodyB.node?.removeFromParent()
         }
         
@@ -187,7 +188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         footballTimer?.invalidate()
         whistleTimer?.invalidate()
         
-        userScoreLabel = SKLabelNode(text: "Fumbles Recovered:")
+        userScoreLabel = SKLabelNode(text: "Balls Recovered:")
         userScoreLabel?.position = CGPoint(x: 0, y: 200)
         userScoreLabel?.fontSize = 70
         userScoreLabel?.zPosition = 1 // set in foreground
@@ -236,3 +237,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 }
+// coome nt 
